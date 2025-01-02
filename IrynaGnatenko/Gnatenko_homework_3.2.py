@@ -10,20 +10,17 @@ numberString = input("Please input a four-digit natural number: ")
 errorMessage = "This doesn't seem to be a four-digit natural number"
 
 #check if the input is a four-digit natural number
-if len(numberString) == 4:
-	try:
-		numberInteger = int(numberString)
-		if numberInteger >= 1000:
-			print(f"Awesome, {numberInteger} is a four-digit natural number")
-		else:
-			print (f"{errorMessage}")
-	except ValueError:
+try:
+	numberInteger = int(numberString)
+	if numberInteger >= 1000 and numberInteger <= 9999:
+		print(f"Awesome, {numberInteger} is a four-digit natural number")
+	else:
 		print (f"{errorMessage}")
-else:
+except ValueError:
 	print (f"{errorMessage}")
 
 #find the product of the digits of this number
-if 'numberInteger' in vars():					# check if the four-digit number integer exists
+if 'numberInteger' in vars() and numberInteger >= 1000 and numberInteger <= 9999:
 	digits = []
 	numberIntegerTemp1 = numberInteger			# create a temporary variable for conversion to list
 
@@ -41,12 +38,12 @@ if 'numberInteger' in vars():					# check if the four-digit number integer exist
 	print(f"The product of digits {digits} is {product}")
 
 # write the number in reverse order
-if 'numberInteger' in vars():
+if 'numberInteger' in vars() and numberInteger >= 1000 and numberInteger <= 9999:
 	reverseDigits = list(reversed(digits))
 	print(f"{numberInteger} in reverse is {reverseDigits}")
 
 # in ascending order, you need to sort the numbers included in the given number
-if 'numberInteger' in vars():
+if 'numberInteger' in vars() and numberInteger >= 1000 and numberInteger <= 9999:
 	digitsSortedAsc = list(sorted(digits))
 	print(f"{numberInteger} sorted in ascending order is {digitsSortedAsc}")
 
